@@ -61,6 +61,12 @@ std::string Player::calculateInputForNextPlayer(std::string move)
     return move; // TODO: Implement
 }
 
+// reads input and stores it to member variables
+void Player::readInput(std::string input)
+{
+    // TODO: Store input in private member variables
+}
+
 void Player::play()
 {
     while (true)
@@ -69,11 +75,11 @@ void Player::play()
         {
             // perform entire move under the lock
             std::lock_guard<std::mutex> myLock(_mutex);
-            std::string input = _queue->receive(); // TODO: Store input in private member variables
+            readInput(_queue->receive()); // TODO 1: Implement
 
-            calculateNextMove(); // TODO: Implement
+            calculateNextMove(); // TODO 2: Implement
             
-            std::string move = "player " + std::to_string(_id) + " has made his move."; // TODO: Replace by calculated move
+            std::string move = "player " + std::to_string(_id) + " has made his move."; // TODO 3: Replace by calculated move
 
             _queue->send(std::move(calculateInputForNextPlayer(move)));
 

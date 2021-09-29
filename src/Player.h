@@ -28,6 +28,7 @@ public:
     Player(int id, std::shared_ptr<MessageQueue<std::string>> queue, int &playsNext);
     void play();
     void calculateNextMove();
+    void readInput(std::string);
     std::string calculateInputForNextPlayer(std::string move);
 
 private:

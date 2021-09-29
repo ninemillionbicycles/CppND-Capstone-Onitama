@@ -12,6 +12,7 @@ int main() {
     // queue will be used to pass a string that contains the input for each turn
     std::shared_ptr<MessageQueue<std::string>> queue(new MessageQueue<std::string>); 
 
+    // keep track of whose turn it is to make sure players take turns make their next move
     int playsNext = 1; // player 1 starts playing first
 
     // create two players
