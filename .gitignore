@@ -2,3 +2,4 @@
 .vscode/**
 debug/**
 build/**
+.DS_Store
